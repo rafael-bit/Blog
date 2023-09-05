@@ -13,6 +13,42 @@ sequelize.authenticate().then(function(){
     console.log("Falha ao se conectar: " + erro);
 });
 
+const Usuario = sequelize.define('usuarios', {
+    nome: {
+        type: Sequelize.STRING
+    },
+
+    sobrenome:{
+        type: Sequelize.STRING
+    },
+
+    email: {
+        type: Sequelize.STRING
+    },
+
+    senha: {
+        type: Sequelize.STRING
+    }
+});
+
+const Post = sequelize.define('posts', {
+    titulo: {
+        type: Sequelize.STRING
+    },
+
+    conteudo: {
+        type: Sequelize.TEXT
+    },
+
+    autor: {
+        type: Sequelize.STRING
+    },
+    
+    data: {
+        type: Sequelize.DATE
+    }
+});
+
 app.get('/', function(req, res){
     res.sendFile(__dirname + "/index.html");
 });
